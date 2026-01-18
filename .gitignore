@@ -1,0 +1,32 @@
+﻿# ===== Python virtual environments =====
+PPOCRLabel_fixed/paddle_env/
+venv/
+env/
+.venv/
+
+# ===== Python cache =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+
+# ===== Logs =====
+*.log
+
+# ===== Build / dist =====
+build/
+dist/
+*.egg-info/
+
+# ===== IDEs =====
+.vscode/
+.idea/
+
+# ===== Model / binary files =====
+*.dll
+*.so
+*.dylib
