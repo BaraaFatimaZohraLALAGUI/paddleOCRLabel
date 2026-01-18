@@ -460,7 +460,7 @@ class MainWindow(QMainWindow, WindowMixin):
                             'Ctrl+S', 'save', getStr('saveLabel'), enabled=False)
 
         undoLastPoint = action(getStr("undoLastPoint"), self.canvas.undoLastPoint,
-                               'Ctrl+Z', "undo", getStr("undoLastPoint"), enabled=False)
+                               'Ctrl+Z', "undo", getStr("undoLastPoint"), enabled=True)
 
         undo = action(getStr("undo"), self.undoShapeEdit,
                       'Ctrl+Z', "undo", getStr("undo"), enabled=False)
@@ -770,6 +770,7 @@ class MainWindow(QMainWindow, WindowMixin):
         assert self.beginner()
         self.canvas.setEditing(False)
         self.actions.create.setEnabled(False)
+        self.actions.undoLastPoint.setEnabled(True)
         self.canvas.fourpoint = False
 
     def createPolygon(self):
@@ -782,6 +783,7 @@ class MainWindow(QMainWindow, WindowMixin):
     def toggleDrawingSensitive(self, drawing=True):
         """In the middle of drawing, toggling between modes should be disabled."""
         self.actions.editMode.setEnabled(not drawing)
+        self.actions.undoLastPoint.setEnabled(drawing)
         if not drawing and self.beginner():
             # Cancel creation.
             print('Cancel creation.')
